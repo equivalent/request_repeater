@@ -1,5 +1,7 @@
 module RequestRepeater
   class RequestMaker
+    InvalidURL = Class.new(StandardError)
+
     attr_reader :endpoints
     attr_writer :sleeper
 
@@ -11,7 +13,7 @@ module RequestRepeater
       loop do
         endpoints.each do |e|
           e.execute do
-            request(e.url)
+            request(e.uri)
           end
         end
         sleeper.call(minimum_sleep)
@@ -19,17 +21,15 @@ module RequestRepeater
     end
 
     private
-      def request(url)
-        uri = URI.parse(url)
-        puts uri.path.nil?
-        req = Net::HTTP::Get.new(uri.path.to_s == '' ?  '/' : uri.path )
+      def request(uri)
+        req = Net::HTTP::Get.new(uri)
 
         Net::HTTP.start(uri.host, uri.port,
                         :use_ssl => uri.scheme == 'https',
                         :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |https|
                           https.request(req)
                         end
-                        .tap {|res| log_response(url, res) }
+                        .tap {|res| log_response(uri.to_s, res) }
       end
 
       def log_response(url, res)

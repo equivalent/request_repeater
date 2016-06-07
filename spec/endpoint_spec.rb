@@ -24,6 +24,42 @@ describe RequestRepeater::Endpoint do
     end
   end
 
+  describe '#uri' do
+    let(:uri) { subject.uri }
+
+    context 'when valid url provided' do
+      let(:url) { 'https://myapp.com/healhcheck' }
+
+      it 'should parse it to URI as it is' do
+        expect(uri.scheme).to eq 'https'
+        expect(uri.port).to eq 443
+        expect(uri.host).to eq 'myapp.com'
+        expect(uri.path).to eq '/healhcheck'
+      end
+    end
+
+    context 'when valid url provided withotu path' do
+      let(:url) { 'http://myapp.com' }
+
+      it 'should parse it and point path to root' do
+        expect(uri.scheme).to eq 'http'
+        expect(uri.port).to eq 80
+        expect(uri.host).to eq 'myapp.com'
+        expect(uri.path).to eq '/'
+      end
+    end
+
+    context 'when url without scheme' do
+      let(:url) { 'myapp.com/health' }
+
+      it do
+        expect { uri }.to raise_exception(RequestRepeater::Endpoint::InvalidURL)
+      end
+    end
+  end
+
+
+
   describe '#execute' do
     let(:block_spy) { spy }
 

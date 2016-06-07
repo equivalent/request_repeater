@@ -1,6 +1,7 @@
 module RequestRepeater
   class Endpoint
     NoEndpointToCall = Class.new(StandardError)
+    InvalidURL = Class.new(StandardError)
 
     attr_reader   :sleepfor
     attr_writer   :timer
@@ -38,6 +39,15 @@ module RequestRepeater
 
     def url
        @url || raise(NoEndpointToCall)
+    end
+
+    def uri
+      @uri ||= begin
+        uri = URI.parse(url)
+        raise InvalidURL, "#{url} is not valid url. Expecting format 'http://myapp/endpoint" unless uri.host
+        uri.path = uri.path.to_s == '' ?  '/' : uri.path 
+        uri
+      end
     end
 
     def inspect

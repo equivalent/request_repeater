@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'time'
+require 'uri'
 require 'webmock'
 
 describe RequestRepeater::RequestMaker do
@@ -12,7 +13,7 @@ describe RequestRepeater::RequestMaker do
   describe '#run' do
     context 'when several enpoints' do
       let(:endpoints) { [endpoint1, endpoint2] }
-      let(:endpoint1) { instance_double(RequestRepeater::Endpoint, url: 'http://nginx/') }
+      let(:endpoint1) { instance_double(RequestRepeater::Endpoint, uri: URI.parse('http://nginx/')) }
       let(:endpoint2) { instance_double(RequestRepeater::Endpoint) }
 
       before do
@@ -44,7 +45,7 @@ describe RequestRepeater::RequestMaker do
 
     context 'when https enpoint' do
       let(:endpoints) { [endpoint1] }
-      let(:endpoint1) { instance_double(RequestRepeater::Endpoint, url: 'https://www.myapp.eu/whaat') }
+      let(:endpoint1) { instance_double(RequestRepeater::Endpoint, uri: URI.parse('https://www.myapp.eu/whaat')) }
 
       before do
         allow(subject).to receive(:loop).and_yield
@@ -61,7 +62,7 @@ describe RequestRepeater::RequestMaker do
 
     context 'when naked enpoint' do
       let(:endpoints) { [endpoint1] }
-      let(:endpoint1) { instance_double(RequestRepeater::Endpoint, url: 'https://i-dont-have-slash-at-the-end') }
+      let(:endpoint1) { instance_double(RequestRepeater::Endpoint, uri: URI.parse('https://i-dont-have-slash-at-the-end')) }
 
       before do
         allow(subject).to receive(:loop).and_yield
