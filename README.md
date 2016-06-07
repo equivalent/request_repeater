@@ -1,6 +1,7 @@
 # Request Repeater
 
-Simple [Ruby Gem]() or [Docker image](https://hub.docker.com/) to
+Simple [Ruby Gem](https://rubygems.org/gems/request_repeater)
+or [Docker image](https://hub.docker.com/r/pobble/request_repeater/) to
 execute GET request on an endpoint (Request Repeater).
 
 This is usefull if you cannot do cron jobs in your application settup.
