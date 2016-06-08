@@ -7,7 +7,7 @@ execute GET request on an endpoint (Request Repeater).
 This is useful if you cannot do cron jobs in your application setup.
 
 Just expose a certain route in your web application to execute the job
-(or to schedule background job) tell `request_repeeter` to trigger GET requests on it.
+(or to schedule background job) and tell `request_repeeter` to trigger GET requests on it.
 
 Program can be executed as:
 
@@ -55,8 +55,8 @@ Default timeout is 1000ms (1 second), if you need different timeout pass
 URL=https://localhost:3000/maintenance?token=12345 SLEEPFOR=2000 bundle exec request_repeater
 ```
 
-For authentication we recommend just to pass token as a query param.
-`/maintenance?token=12345`
+For authentication we recommend just to pass token as a query param,
+like: `/maintenance?token=12345`
 
 **Multiple endpoints**
 
@@ -84,11 +84,11 @@ URLS='{"urls": [{"url":"http://localhost/some-endpoint", "sleep":1200}, {"url":"
 
 #### Usage
 
-**Single Endpoint**
-
 ```bash
 docker pull pobble/request_repeater
 ```
+
+**Single Endpoint**
 
 Specify `URL` env variable
 
@@ -137,7 +137,7 @@ services:
 ```
 
 
-**AWS Elastic Beanstalk Dockerrun.aws.json example usage**
+**AWS Elastic Beanstalk Dockerrun.aws.json example**
 
 ```json
 {
@@ -171,7 +171,7 @@ services:
 
 **Multiple endpoints**
 
-You need to pass `URLS` env variable with json in format:
+You need to pass `URLS` env variable with JSON in format:
 
 ```json
 {
@@ -191,7 +191,7 @@ docker run -e 'URLS={"urls": [{"url":"http://localhost/some-endpoint", "sleep":1
 
 #### Docker Composer example
 
-docker-compose.yml:
+*docker-compose.yml*:
 
 ```yml
 ---
@@ -211,6 +211,8 @@ services:
 ```
 
 #### AWS Elastic Beanstalk Dockerrun.aws.json example usage
+
+*Dockerrun.aws.json*:
 
 ```json
 {
