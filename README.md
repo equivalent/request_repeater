@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Pobble/request_repeater.svg?branch=master)](https://travis-ci.org/Pobble/request_repeater)
+
 # Request Repeater
 
 Simple [Ruby Gem](https://rubygems.org/gems/request_repeater)
