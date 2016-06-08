@@ -84,6 +84,8 @@ URLS='{"urls": [{"url":"http://localhost/some-endpoint", "sleep":1200}, {"url":"
 
 ## Docker Image Application
 
+![Docker Image Stats](http://dockeri.co/image/pobble/request_repeater)
+
 #### Usage
 
 ```bash
