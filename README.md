@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/Pobble/request_repeater.svg?branch=master)](https://travis-ci.org/Pobble/request_repeater)
-
 # Request Repeater
 
 Simple [Ruby Gem](https://rubygems.org/gems/request_repeater)
@@ -17,6 +15,9 @@ Program can be executed as:
 * [Docker image application](https://github.com/Pobble/request_repeater#docker-image-application)
 
 ## Standalone Ruby gem
+
+[![Build Status](https://travis-ci.org/Pobble/request_repeater.svg?branch=master)](https://travis-ci.org/Pobble/request_repeater)
+[![Code Climate](https://codeclimate.com/github/Pobble/request_repeater/badges/gpa.svg)](https://codeclimate.com/github/Pobble/request_repeater)
 
 #### Instalation
 
