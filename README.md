@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Pobble/request_repeater.svg?branch=master)](https://travis-ci.org/Pobble/request_repeater)
+
 # Request Repeater
 
 Simple [Ruby Gem](https://rubygems.org/gems/request_repeater)
@@ -81,6 +83,8 @@ URLS='{"urls": [{"url":"http://localhost/some-endpoint", "sleep":1200}, {"url":"
 > `URL` and `SLEEPFOR` env variables are ignored when you provide `URLS` env variable
 
 ## Docker Image Application
+
+![Docker Image Stats](http://dockeri.co/image/pobble/request_repeater)
 
 #### Usage
 
