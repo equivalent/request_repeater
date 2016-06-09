@@ -11,8 +11,8 @@ Just expose a certain route in your web application to execute the job
 
 **Application can be executed as**:
 
-* [Standalone Ruby gem  application](https://github.com/Pobble/request_repeater#standalone-ruby-gem)
-* [Docker image application](https://github.com/Pobble/request_repeater#docker-image-application)
+* :heavy_dollar_sign: [Standalone Ruby gem  application](https://github.com/Pobble/request_repeater#standalone-ruby-gem)
+* :whale: [Docker image application](https://github.com/Pobble/request_repeater#docker-image-application)
 
 ## Standalone Ruby gem
 
@@ -91,7 +91,7 @@ URLS='{"urls": [{"url":"http://localhost/some-endpoint", "sleep":1200}, {"url":"
 #### Usage
 
 ```bash
-docker pull pobble/request_repeater
+$ docker pull pobble/request_repeater
 ```
 
 **Single Endpoint**
@@ -100,7 +100,7 @@ Specify `URL` env variable
 
 
 ```bash
-docker run -e "URL=http://www.my-app.dot/execute-something.html" pobble/request_repeater
+$ docker run -e "URL=http://www.my-app.dot/execute-something.html" pobble/request_repeater
 ```
 
 Default timeout is 1000ms (1 second), if you need different timeout pass
@@ -108,19 +108,19 @@ Default timeout is 1000ms (1 second), if you need different timeout pass
 
 ```bash
 # 2 second timeout
-docker run -e "SLEEPFOR=2000" -e "URL=http://www.my-app.dot/execute-something.html" pobble/request_repeater
+$ docker run -e "SLEEPFOR=2000" -e "URL=http://www.my-app.dot/execute-something.html" pobble/request_repeater
 ```
 
 To execute on localhost of image host:
 
 ```bash
-docker run -e "SLEEPFOR=2000" -e "URL=http://localhost:3000/execute-something.html" --net="host" pobble/request_repeater
+$ docker run -e "SLEEPFOR=2000" -e "URL=http://localhost:3000/execute-something.html" --net="host" pobble/request_repeater
 ```
 
 You want authentication ? How about passing token param:
 
 ```bash
-docker run -e "URL=https://www.my-app.dot/execute-something.html?token=1234556"  pobble/request_repeater
+$ docker run -e "URL=https://www.my-app.dot/execute-something.html?token=1234556"  pobble/request_repeater
 ```
 
 **docker-compose.yml example**
@@ -190,7 +190,7 @@ You need to pass `URLS` env variable with JSON in format:
 ```
 
 ```bash
-docker run -e 'URLS={"urls": [{"url":"http://localhost/some-endpoint", "sleep":1200}, {"url":"http://localhost/another-endpoint","sleep":3000}]}' --net="host" pobble/request_repeater
+$ docker run -e 'URLS={"urls": [{"url":"http://localhost/some-endpoint", "sleep":1200}, {"url":"http://localhost/another-endpoint","sleep":3000}]}' --net="host" pobble/request_repeater
 ```
 
 > `URL` and `SLEEPFOR` env variables are ignored when you provide `URLS` env variable
@@ -254,10 +254,10 @@ services:
 #### Kill the container
 
 ```bash
-docker kill $(docker ps | grep request_repeater | awk "{print \$1}")
+$ docker kill $(docker ps | grep request_repeater | awk "{print \$1}")
 
 # sudo version
-sudo docker kill $(sudo docker ps | grep request_repeater | awk "{print \$1}")
+$ sudo docker kill $(sudo docker ps | grep request_repeater | awk "{print \$1}")
 ```
 
 ## Minimum Sleeptime
@@ -267,9 +267,9 @@ time implementend set to `500 miliseconds`. If you need to use this
 image without this limit provide one more extra enviroment variable `MINIMUMSLEEP`:
 
 ```
-docker run -e "SLEEPFOR=300" -e 'MINIMUMSLEEP=300' -e "URL=http://www.my-app.dot/execute-something.html" pobble/request_repeater # 300 ms
+$ docker run -e "SLEEPFOR=300" -e 'MINIMUMSLEEP=300' -e "URL=http://www.my-app.dot/execute-something.html" pobble/request_repeater # 300 ms
 
-docker run -e "SLEEPFOR=0" -e 'MINIMUMSLEEP=0' -e "URL=http://www.my-app.dot/execute-something.html" pobble/request_repeater # no limit
+$ docker run -e "SLEEPFOR=0" -e 'MINIMUMSLEEP=0' -e "URL=http://www.my-app.dot/execute-something.html" pobble/request_repeater # no limit
 ```
 
 ## Alternatives
