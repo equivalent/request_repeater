@@ -18,6 +18,7 @@ Program can be executed as:
 
 [![Build Status](https://travis-ci.org/Pobble/request_repeater.svg?branch=master)](https://travis-ci.org/Pobble/request_repeater)
 [![Code Climate](https://codeclimate.com/github/Pobble/request_repeater/badges/gpa.svg)](https://codeclimate.com/github/Pobble/request_repeater)
+[![Test Coverage](https://codeclimate.com/github/Pobble/request_repeater/badges/coverage.svg)](https://codeclimate.com/github/Pobble/request_repeater/coverage)
 
 #### Instalation
 
