@@ -49,6 +49,9 @@ Pass enviroment variable `URL` with location
 ```
 # every second send request to http://localhost:3000/execute-something.html
 $ URL=http://localhost:3000/execute-something.html bundle exec request_repeater
+
+# ...or if you didn't use Bundler
+$ URL=http://localhost:3000/execute-something.html request_repeater
 ```
 
 Default timeout is 1000ms (1 second), if you need different timeout pass
@@ -267,6 +270,8 @@ time implementend set to `500 miliseconds`. If you need to use this
 image without this limit provide one more extra enviroment variable `MINIMUMSLEEP`:
 
 ```
+$ URL=https://www.my-app.dot/execute-something.html SLEEPFOR=100 MINIMUMSLEEP=0 bundle exec request_repeater
+
 $ docker run -e "SLEEPFOR=300" -e 'MINIMUMSLEEP=300' -e "URL=http://www.my-app.dot/execute-something.html" pobble/request_repeater # 300 ms
 
 $ docker run -e "SLEEPFOR=0" -e 'MINIMUMSLEEP=0' -e "URL=http://www.my-app.dot/execute-something.html" pobble/request_repeater # no limit
