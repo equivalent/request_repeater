@@ -7,6 +7,7 @@ describe RequestRepeater::RequestMaker do
   include WebMock::API
 
   WebMock.enable!
+  WebMock.disable_net_connect!(:allow => "codeclimate.com")
 
   subject { described_class.new(endpoints) }
 
