@@ -9,7 +9,7 @@ This is useful if you cannot do cron jobs in your application setup.
 Just expose a certain route in your web application to execute the job
 (or to schedule background job) and tell `request_repeeter` to trigger GET requests on it.
 
-Program can be executed as:
+**Application can be executed as**:
 
 * [Standalone Ruby gem  application](https://github.com/Pobble/request_repeater#standalone-ruby-gem)
 * [Docker image application](https://github.com/Pobble/request_repeater#docker-image-application)
