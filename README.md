@@ -48,7 +48,7 @@ Pass enviroment variable `URL` with location
 
 ```
 # every second send request to http://localhost:3000/execute-something.html
-URL=http://localhost:3000/execute-something.html bundle exec request_repeater
+$ URL=http://localhost:3000/execute-something.html bundle exec request_repeater
 ```
 
 Default timeout is 1000ms (1 second), if you need different timeout pass
@@ -56,7 +56,7 @@ Default timeout is 1000ms (1 second), if you need different timeout pass
 
 ```
 # every two seconds send request to https://localhost:3000/maintenance?token=12345
-URL=https://localhost:3000/maintenance?token=12345 SLEEPFOR=2000 bundle exec request_repeater
+$ URL=https://localhost:3000/maintenance?token=12345 SLEEPFOR=2000 bundle exec request_repeater
 ```
 
 For authentication we recommend just to pass token as a query param,
@@ -79,7 +79,7 @@ You need to pass `URLS` env variable with json in format:
 example:
 
 ```
-URLS='{"urls": [{"url":"http://localhost/some-endpoint", "sleep":1200}, {"url":"http://localhost/another-endpoint","sleep":3000}]}' bundle exec request_repeater
+$ URLS='{"urls": [{"url":"http://localhost/some-endpoint", "sleep":1200}, {"url":"http://localhost/another-endpoint","sleep":3000}]}' bundle exec request_repeater
 ```
 
 > `URL` and `SLEEPFOR` env variables are ignored when you provide `URLS` env variable
