@@ -90,6 +90,7 @@ $ URLS='{"urls": [{"url":"http://localhost/some-endpoint", "sleep":1200}, {"url"
 ## Docker Image Application
 
 ![Docker Image Stats](http://dockeri.co/image/pobble/request_repeater)
+[![](https://imagelayers.io/badge/pobble/request_repeater:latest.svg)](https://imagelayers.io/?images=pobble/request_repeater:latest 'Get your own badge on imagelayers.io')
 
 #### Usage
 
