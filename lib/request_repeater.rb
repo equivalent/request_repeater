@@ -5,6 +5,7 @@ require 'uri'
 require 'logger'
 require 'json'
 require 'net/http'
+require 'openssl'
 
 module RequestRepeater
   def self.sleeptime(miliseconds)
