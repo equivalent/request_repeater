@@ -1,7 +1,7 @@
 # Request Repeater
 
 Simple [Ruby Gem](https://rubygems.org/gems/request_repeater)
-or [Docker image](https://hub.docker.com/r/pobble/request_repeater/) to
+or [Docker image](https://hub.docker.com/r/equivalent/request_repeater/) to
 execute GET request on an endpoint (Request Repeater).
 
 This is useful if you cannot do cron jobs in your application setup.
@@ -11,14 +11,14 @@ Just expose a certain route in your web application to execute the job
 
 **Application can be executed as**:
 
-* :heavy_dollar_sign: [Standalone Ruby gem  application](https://github.com/Pobble/request_repeater#standalone-ruby-gem)
-* :whale: [Docker image application](https://github.com/Pobble/request_repeater#docker-image-application)
+* :heavy_dollar_sign: [Standalone Ruby gem  application](https://github.com/equivalent/request_repeater#standalone-ruby-gem)
+* :whale: [Docker image application](https://github.com/equivalent/request_repeater#docker-image-application)
 
 ## Standalone Ruby gem
 
-[![Build Status](https://travis-ci.org/Pobble/request_repeater.svg?branch=master)](https://travis-ci.org/Pobble/request_repeater)
-[![Code Climate](https://codeclimate.com/github/Pobble/request_repeater/badges/gpa.svg)](https://codeclimate.com/github/Pobble/request_repeater)
-[![Test Coverage](https://codeclimate.com/github/Pobble/request_repeater/badges/coverage.svg)](https://codeclimate.com/github/Pobble/request_repeater/coverage)
+[![Build Status](https://travis-ci.org/equivalent/request_repeater.svg?branch=master)](https://travis-ci.org/equivalent/request_repeater)
+[![Code Climate](https://codeclimate.com/github/equivalent/request_repeater/badges/gpa.svg)](https://codeclimate.com/github/equivalent/request_repeater)
+[![Test Coverage](https://codeclimate.com/github/equivalent/request_repeater/badges/coverage.svg)](https://codeclimate.com/github/equivalent/request_repeater/coverage)
 
 #### Instalation
 
@@ -89,13 +89,13 @@ $ URLS='{"urls": [{"url":"http://localhost/some-endpoint", "sleep":1200}, {"url"
 
 ## Docker Image Application
 
-![Docker Image Stats](http://dockeri.co/image/pobble/request_repeater)
-[![](https://imagelayers.io/badge/pobble/request_repeater:latest.svg)](https://imagelayers.io/?images=pobble/request_repeater:latest 'Get your own badge on imagelayers.io')
+![Docker Image Stats](http://dockeri.co/image/equivalent/request_repeater)
+[![](https://imagelayers.io/badge/equivalent/request_repeater:latest.svg)](https://imagelayers.io/?images=equivalent/request_repeater:latest 'Get your own badge on imagelayers.io')
 
 #### Usage
 
 ```bash
-$ docker pull pobble/request_repeater
+$ docker pull equivalent/request_repeater
 ```
 
 **Single Endpoint**
@@ -104,7 +104,7 @@ Specify `URL` env variable
 
 
 ```bash
-$ docker run -e "URL=http://www.my-app.dot/execute-something.html" pobble/request_repeater
+$ docker run -e "URL=http://www.my-app.dot/execute-something.html" equivalent/request_repeater
 ```
 
 Default timeout is 1000ms (1 second), if you need different timeout pass
@@ -112,19 +112,19 @@ Default timeout is 1000ms (1 second), if you need different timeout pass
 
 ```bash
 # 2 second timeout
-$ docker run -e "SLEEPFOR=2000" -e "URL=http://www.my-app.dot/execute-something.html" pobble/request_repeater
+$ docker run -e "SLEEPFOR=2000" -e "URL=http://www.my-app.dot/execute-something.html" equivalent/request_repeater
 ```
 
 To execute on localhost of image host:
 
 ```bash
-$ docker run -e "SLEEPFOR=2000" -e "URL=http://localhost:3000/execute-something.html" --net="host" pobble/request_repeater
+$ docker run -e "SLEEPFOR=2000" -e "URL=http://localhost:3000/execute-something.html" --net="host" equivalent/request_repeater
 ```
 
 You want authentication ? How about passing token param:
 
 ```bash
-$ docker run -e "URL=https://www.my-app.dot/execute-something.html?token=1234556"  pobble/request_repeater
+$ docker run -e "URL=https://www.my-app.dot/execute-something.html?token=1234556"  equivalent/request_repeater
 ```
 
 **docker-compose.yml example**
@@ -138,7 +138,7 @@ services:
     ports:
       - "80:80"
   request_repeater:
-    image: 'pobble/request_repeater'
+    image: 'equivalent/request_repeater'
     links:
       - nginx:nginx
     environment:
@@ -164,7 +164,7 @@ services:
     },
     {
       "name": "request_repeater",
-      "image": "pobble/request_repeater",
+      "image": "equivalent/request_repeater",
       "essential": true,
       "memory": 150,
       "links": [ "nginx" ],
@@ -194,7 +194,7 @@ You need to pass `URLS` env variable with JSON in format:
 ```
 
 ```bash
-$ docker run -e 'URLS={"urls": [{"url":"http://localhost/some-endpoint", "sleep":1200}, {"url":"http://localhost/another-endpoint","sleep":3000}]}' --net="host" pobble/request_repeater
+$ docker run -e 'URLS={"urls": [{"url":"http://localhost/some-endpoint", "sleep":1200}, {"url":"http://localhost/another-endpoint","sleep":3000}]}' --net="host" equivalent/request_repeater
 ```
 
 > `URL` and `SLEEPFOR` env variables are ignored when you provide `URLS` env variable
@@ -212,7 +212,7 @@ services:
     ports:
       - "80:80"
   request_repeater:
-    image: 'pobble/request_repeater'
+    image: 'equivalent/request_repeater'
     links:
       - nginx:nginx
     environment:
@@ -239,7 +239,7 @@ services:
     },
     {
       "name": "request_repeater",
-      "image": "pobble/request_repeater",
+      "image": "equivalent/request_repeater",
       "essential": true,
       "memory": 150,
       "links": [ "nginx" ],
@@ -273,9 +273,9 @@ image without this limit provide one more extra enviroment variable `MINIMUMSLEE
 ```
 $ URL=https://www.my-app.dot/execute-something.html SLEEPFOR=100 MINIMUMSLEEP=0 bundle exec request_repeater
 
-$ docker run -e "SLEEPFOR=300" -e 'MINIMUMSLEEP=300' -e "URL=http://www.my-app.dot/execute-something.html" pobble/request_repeater # 300 ms
+$ docker run -e "SLEEPFOR=300" -e 'MINIMUMSLEEP=300' -e "URL=http://www.my-app.dot/execute-something.html" equivalent/request_repeater # 300 ms
 
-$ docker run -e "SLEEPFOR=0" -e 'MINIMUMSLEEP=0' -e "URL=http://www.my-app.dot/execute-something.html" pobble/request_repeater # no limit
+$ docker run -e "SLEEPFOR=0" -e 'MINIMUMSLEEP=0' -e "URL=http://www.my-app.dot/execute-something.html" equivalent/request_repeater # no limit
 ```
 
 ## Alternatives
@@ -285,10 +285,10 @@ which has a issue with memory leak causing eventually docker container to
 restart after several hours of activity, but can handle more requests
 per second. If you need something that does more requests per second
 (e.g.: testing your app against DDOS attack)
-then [Little Bastard](https://hub.docker.com/r/pobble/request_repeater/)
+then [Little Bastard](https://hub.docker.com/r/equivalent/request_repeater/)
 image is better for you.
 
-`pobble/request_repeater`  aims to provide stable flow of
+`equivalent/request_repeater`  aims to provide stable flow of
 repeating requests without crushing over time.
 
 ## License
