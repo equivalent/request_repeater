@@ -12,7 +12,7 @@ Just expose a certain route in your web application to execute the job
 **Application can be executed as**:
 
 * :heavy_dollar_sign: [Standalone Ruby gem  application](https://github.com/equivalent/request_repeater#standalone-ruby-gem)
-* :whale: [Docker image application](https://github.com/equivalent/request_repeater#docker-image-application)
+* :whale: [Docker image application](https://hub.docker.com/r/equivalent/request_repeater)
 
 ## Standalone Ruby gem
 
@@ -89,8 +89,7 @@ $ URLS='{"urls": [{"url":"http://localhost/some-endpoint", "sleep":1200}, {"url"
 
 ## Docker Image Application
 
-![Docker Image Stats](http://dockeri.co/image/equivalent/request_repeater)
-[![](https://imagelayers.io/badge/equivalent/request_repeater:latest.svg)](https://imagelayers.io/?images=equivalent/request_repeater:latest 'Get your own badge on imagelayers.io')
+* :whale: [Docker image application](https://hub.docker.com/r/equivalent/request_repeater)
 
 #### Usage
 
