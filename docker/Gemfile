@@ -1,4 +1,3 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
-gem 'request_repeater'
+gem 'request_repeater', '0.2'
